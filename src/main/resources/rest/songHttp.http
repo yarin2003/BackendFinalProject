@@ -1,0 +1,111 @@
+### add first song
+POST http://localhost:8080/api/v1/albums/1/songs
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "songTitle": "Say You Won't Let Go",
+  "songReleased": "09/10/2016",
+  "genres": "Pop, folk, R&B",
+  "length": "03:31",
+  "label": "Columbia",
+  "songWriters": "James Arthur, Andrew Frampton, Daniel O'Donoghue, Steve Kipner, Mark Sheehan, Neil Ormandy, Steve Solomon",
+  "producers": "Alexander Beitzke, Bradley Spence",
+  "songImageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d8/Say_You_Won%27t_Let_Go.jpg"
+}
+
+### add second song
+POST http://localhost:8080/api/v1/albums/4/songs
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "songTitle": "Set Fire to the Rain",
+  "songReleased": "04/07/2011",
+  "genres": "Pop, power pop, pop soul",
+  "length": "04:02",
+  "label": "XL, Columbia",
+  "songWriters": "JAdele Adkins, Fraser T. Smith",
+  "producers": "Fraser T. Smith",
+  "songImageUrl": "https://upload.wikimedia.org/wikipedia/en/9/95/Adele_-_Set_Fire_to_the_Rain.png"
+}
+
+### add third song
+POST http://localhost:8080/api/v1/albums/18/songs
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "songTitle": "Treat You Better",
+  "songReleased": "03/06/2016",
+  "genres": "Pop",
+  "length": "03:07",
+  "label": "Island, Republic, Universal",
+  "songWriters": "Shawn Mendes, Teddy Geiger, Scott Harris",
+  "producers": "Teddy Geiger, Dan Romer, DJ 'Daylight' Kyriakides",
+  "songImageUrl": "https://upload.wikimedia.org/wikipedia/en/3/37/Treat_You_Better_%28Official_Single_Cover%29_by_Shawn_Mendes.png"
+}
+
+### add forth song
+POST http://localhost:8080/api/v1/albums/3/songs
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "songTitle": "There's Nothing Holdin' Me Back",
+  "songReleased": "20/04/2017",
+  "genres": "Pop rock, folktronica",
+  "length": "03:25",
+  "label": "Island, Universal",
+  "songWriters": "Shawn Mendes, Teddy Geiger, Geoff Warburton, Scott Harris",
+  "producers": "Teddy Geiger, Andrew Maury",
+  "songImageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a4/Shawn_Mendes_-_Theres_Nothing_Holdin_Me_Back_%28Official_Single_Cover%29.jpeg"
+}
+
+### add mom-valid song
+POST http://localhost:8080/api/v1/albums/15/songs
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "songTitle": "Say You Won't Let Go",
+  "songReleased": "09/11/2016",
+  "genres": "folk, R&B",
+  "length": "03:21",
+  "label": "Columbia",
+  "songWriters": "James Arthur, Andrew Frampton, Daniel O'Donoghue, Steve Kipner, Mark Sheehan, Neil Ormandy, Steve Solomon",
+  "producers": "Alexander Beitzke, Bradley Spence",
+  "songImageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d8/Say_You_Won%27t_Let_Go.jpg"
+}
+
+###get songs by albumId
+GET http://localhost:8080/api/v1/albums/3/songs?pageNo=0&pageSize=3&sortDir=asc&sortBy=id
+Authorization: Bearer {{adminJWT}}
+
+### get by name
+GET http://localhost:8080/api/v1/songs/name/tr
+Authorization: Bearer {{adminJWT}}
+
+### update
+PUT http://localhost:8080/api/v1/songs/17
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "songTitle": "Say You Won't Let Go",
+  "songReleased": "09/10/2016",
+  "genres": "Pop, folk, R&B",
+  "length": "03:31",
+  "label": "Columbia",
+  "songWriters": "James Arthur, Andrew Frampton, Daniel O'Donoghue, Steve Kipner, Mark Sheehan, Neil Ormandy, Steve Solomon",
+  "producers": "Alexander Beitzke, Bradley Spence",
+  "songImageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d8/Say_You_Won%27t_Let_Go.jpg"
+}
+
+### delete
+DELETE http://localhost:8080/api/v1/songs/1
+Authorization: Bearer {{adminJWT}}
+
+### delete wrong id
+DELETE http://localhost:8080/api/v1/songs/6
+Authorization: Bearer {{adminJWT}}

@@ -1,0 +1,39 @@
+###get user details
+GET http://localhost:8080/api/v1/auth/me
+#do  I need this? check later!
+Authorization: Bearer {{adminJWT}}
+
+###register a user:
+POST http://localhost:8080/api/v1/auth/register
+Content-Type:application/json
+
+{
+"username": "yarin",
+"email": "yarin@gmail.com",
+"password": "Passw0rd1!"
+}
+
+###login as user:
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "Passw0rd1!"
+}
+
+###login as admin:
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "Passw0rd1!"
+}
+
+####get user details
+#GET http://localhost:8080/api/v1/auth/auth/roles
+#
+####get user details
+#GET http://localhost:8080/api/v1/auth/auth/permission
+

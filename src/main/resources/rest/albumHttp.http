@@ -1,0 +1,95 @@
+###Add first album
+POST http://localhost:8080/api/v1/artists/46/albums
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "albumTitle": "Back from the Edge",
+  "albumReleased": "28/10/2016",
+  "length": "47:44",
+  "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/a/ad/James_Arthur_-_Back_from_the_Edge.jpg"
+}
+
+###Add second album
+POST http://localhost:8080/api/v1/artists/46/albums
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "albumTitle": "You",
+  "albumReleased": "18/10/2019",
+  "length": "62:33",
+  "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/1/17/James_Arthur_-_You.png"
+}
+
+###Add third album
+POST http://localhost:8080/api/v1/artists/44/albums
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "albumTitle": "Illuminate",
+  "albumReleased": "23/09/2016",
+  "length": "41:15",
+  "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d2/Illuminate_%28Official_Album_Cover%29_by_Shawn_Mendes.png"
+}
+
+###Add forth album
+POST http://localhost:8080/api/v1/artists/47/albums
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "albumTitle": "21",
+  "albumReleased": "24/01/2011",
+  "length": "48:01",
+  "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/1/1b/Adele_-_21.png"
+}
+
+###Add non-valid album
+POST http://localhost:8080/api/v1/artists/8/albums
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "albumTitle": "Illuminated",
+  "albumReleased": "23/09/2016",
+  "length": "41:15",
+  "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d2/Illuminate_%28Official_Album_Cover%29_by_Shawn_Mendes.png"
+}
+
+###get albums by artist
+GET http://localhost:8080/api/v1/albums?pageNo=0&pageSize=1&sortDir=asc&sortBy=id
+Authorization: Bearer {{adminJWT}}
+
+### pagination
+GET http://localhost:8080/api/v1/albums?pageNo=0&pageSize=2&sortDir=asc&sortBy=id
+Authorization: Bearer {{adminJWT}}
+
+### get by name
+GET http://localhost:8080/api/v1/albums/name?name=i
+Authorization: Bearer {{adminJWT}}
+
+### get wrong id
+GET http://localhost:8080/api/v1/albums/5
+Authorization: Bearer {{userJWT}}
+
+### update
+PUT http://localhost:8080/api/v1/albums/18
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "albumTitle": "Illuminate",
+  "albumReleased": "23/09/2016",
+  "length": "41:15",
+  "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d2/Illuminate_%28Official_Album_Cover%29_by_Shawn_Mendes.png"
+}
+
+### delete
+DELETE http://localhost:8080/api/v1/albums/7
+Authorization: Bearer {{adminJWT}}
+
+### delete wrong id
+DELETE http://localhost:8080/api/v1/albums/4
+Authorization: Bearer {{adminJWT}}

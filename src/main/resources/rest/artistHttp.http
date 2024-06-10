@@ -1,0 +1,109 @@
+### add an artist
+POST http://localhost:8080/api/v1/artists
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "name": "Shawn Mendes678",
+  "birthDate": "08/08/1998",
+  "countryOfBirth": "Canada",
+  "startYear": "2013",
+  "endYear": "present",
+  "artistImageUrl": "https://www.rollingstone.com/wp-content/uploads/2023/06/shawnmendes-davidyurman-copy.jpg?w=1450&h=960&crop=1"
+}
+
+### add second artist
+POST http://localhost:8080/api/v1/artists
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "name": "James Arthur",
+  "birthDate": "02/03/1988",
+  "countryOfBirth": "England",
+  "startYear": "2011",
+  "endYear": "present",
+  "artistImageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc_XjzgWm-bbEVUPUQQTvAl6W4anYkuANeUw&usqp=CAU"
+}
+
+### add third artist
+POST http://localhost:8080/api/v1/artists
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "name": "Adele55",
+  "birthDate": "05/03/1988",
+  "countryOfBirth": "England",
+  "startYear": "2006",
+  "endYear": "present",
+  "artistImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Adele_for_Vogue_in_2021.png/330px-Adele_for_Vogue_in_2021.png"
+}
+
+### add forth artist
+POST http://localhost:8080/api/v1/artists
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "name": "John Lennon",
+  "birthDate": "09/10/1940",
+  "countryOfBirth": "England",
+  "startYear": "1956",
+  "endYear": "1980",
+  "artistImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/John_Lennon_1969_%28cropped%29.jpg/330px-John_Lennon_1969_%28cropped%29.jpg"
+}
+
+### add non-valid artist
+POST http://localhost:8080/api/v1/artists
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "name": "Rihana",
+  "birthDate": "09/150/1940",
+  "countryOfBirth": "England",
+  "startYear": "1956",
+  "endYear": "1980",
+  "artistImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/John_Lennon_1969_%28cropped%29.jpg/330px-John_Lennon_1969_%28cropped%29.jpg"
+}
+
+
+### get all
+GET http://localhost:8080/api/v1/artists
+Authorization: Bearer {{adminJWT}}
+
+### pagination
+GET http://localhost:8080/api/v1/artists?pageNo=0&pageSize=2&sortDir=asc&sortBy=id
+Authorization: Bearer {{adminJWT}}
+
+### get id 1
+GET http://localhost:8080/api/v1/artists/10
+Authorization: Bearer {{adminJWT}}
+
+### get by nane
+GET http://localhost:8080/api/v1/artists/name?name=james art
+Authorization: Bearer {{adminJWT}}
+
+### get wrong id
+GET http://localhost:8080/api/v1/artists/6
+Authorization: Bearer {{adminJWT}}
+
+### upsert
+PUT http://localhost:8080/api/v1/artists/3
+Authorization: Bearer {{adminJWT}}
+Content-Type: application/json
+
+{
+  "name": "Adelle",
+  "birthDate": "05/03/1988",
+  "countryOfBirth": "England",
+  "startYear": "2006",
+  "endYear": "present",
+  "artistImageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Adele_for_Vogue_in_2021.png/330px-Adele_for_Vogue_in_2021.png"
+}
+
+### delete
+DELETE http://localhost:8080/api/v1/artists/1
+Authorization: Bearer {{adminJWT}}
+
